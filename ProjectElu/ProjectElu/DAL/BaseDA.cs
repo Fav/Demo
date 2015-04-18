@@ -63,6 +63,19 @@ namespace ProjectElu
             }
             return null;
         }
+        public static int QueryForCount<T>(object parameterObject = null) where T : class
+        {
+            ISqlMapper iSqlMapper = Mapper.Instance();
+            if (iSqlMapper != null)
+            {
+                object obj = iSqlMapper.QueryForObject(GetNameSpace<T>() + ".query_cnt", parameterObject);
+                if (obj != null)
+                {
+                    return (int)obj;
+                }
+            }
+            return 0;
+        }
 
         /// <summary>
         /// 获取命名空间

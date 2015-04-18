@@ -136,7 +136,8 @@
     </select>
 
     <select id="PRODUCT.query_cnt" resultClass="int" parameterClass="System.Collections.IDictionary">
-      select count(*) from PRODUCT
+      select count(*) 
+      from PRODUCT
       <dynamic prepend="where">
         <include refid="PRODUCT.dynamicWhere" />
         <include refid="PRODUCT.dynamicScope" />

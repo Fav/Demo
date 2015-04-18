@@ -23,7 +23,7 @@ namespace ProjectElu
             QueryCollection qc = new QueryCollection();
             if (user.ROLETYPE == 1)
             {
-                qc.AddQueryParam("Unit", user.UNIT);
+                qc.AddQueryParam("UNIT", user.UNIT);
             }
 
             IList<PRODUCT> lst = BaseDA.QueryForList<PRODUCT>(CommonMethod.PrepareQuery( qc.QueryParams));
