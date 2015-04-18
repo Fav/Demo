@@ -1,0 +1,57 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<sqlMap namespace="Role" 
+    xmlns="http://ibatis.apache.org/mapping"
+		xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+
+	<alias>
+		<!--类的别名-->
+		<typeAlias alias="Role" type="ProjectElu.ROLE,ProjectElu"/>
+	</alias>
+
+	<resultMaps>
+		<!--Role类与db表的映射-->
+		<resultMap id="SelectAllResult" class="Role">
+			<result property="ROLEID" column="ROLEID"/>
+			<result property="DESCRIPE" column="DESCRIPE"/>
+		</resultMap>
+	</resultMaps>
+
+	<statements>
+
+		<!--查询所有记录-->
+		<select id="ROLE.SelectAll" resultMap="SelectAllResult">
+			<![CDATA[SELECT ROLEID,DESCRIPE FROM Role]]>
+		</select>
+
+		<!--查询单条记录-->
+		<select id="ROLE.SelectByID" parameterClass="int" resultMap="SelectAllResult">
+			<![CDATA[ where ROLEID = #value#  ]]>
+		</select>
+
+		<!--插入新记录-->
+		<insert id="ROLE.Insert" parameterClass="Role">	
+			<!--oracle sequence的示例用法
+			<selectKey property="ROLEID" type="pre" resultClass="int">
+				select SQ_Role.nextval as ROLEID from dual
+			</selectKey>
+      -->
+			<![CDATA[INSERT into Role(ROLEID,DESCRIPE)
+			VALUES(#ROLEID#,#DESCRIPE#)]]>
+		</insert>
+
+		<!--更新单条记录-->
+		<update id="ROLE.Update" parameterClass="Role">
+			<![CDATA[Update Role SET ROLEID=#ROLEID#,
+			DESCRIPE=#DESCRIPE#]]>
+		</update>
+
+		<!--根据主键删除单条记录-->
+		<delete id="ROLE.DeleteById" parameterClass="int">
+			<![CDATA[Delete From Role Where ROLEID=#value#]]>
+		</delete>
+
+
+	</statements>
+
+</sqlMap>
+

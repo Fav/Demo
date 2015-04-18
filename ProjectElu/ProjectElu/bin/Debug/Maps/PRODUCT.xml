@@ -1,0 +1,71 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<sqlMap namespace="Product" 
+    xmlns="http://ibatis.apache.org/mapping"
+		xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+
+	<alias>
+		<!--类的别名-->
+		<typeAlias alias="Product" type="ProjectElu.PRODUCT,ProjectElu"/>
+	</alias>
+
+	<resultMaps>
+		<!--Product类与db表的映射-->
+		<resultMap id="SelectAllResult" class="Product">
+			<result property="ID" column="ID"/>
+			<result property="NAME" column="NAME"/>
+			<result property="UNIT" column="UNIT" />
+			<result property="DEPARTMENT" column="DEPARTMENT"  />
+			<result property="INSTRUMENT" column="INSTRUMENT"  />
+			<result property="CONTACTS" column="CONTACTS"  />
+			<result property="PHONE" column="PHONE"  />			
+			<result property="STARTTIME" column="STARTTIME" />
+		</resultMap>
+	</resultMaps>
+
+	<statements>
+
+		<!--查询所有记录-->
+		<select id="PRODUCT.SelectAll" resultMap="SelectAllResult">
+			<![CDATA[SELECT ID,NAME,UNIT,DEPARTMENT,INSTRUMENT,CONTACTS,PHONE,STARTTIME FROM Product]]>
+		</select>
+
+		<!--查询单条记录-->
+		<select id="PRODUCT.SelectByID" parameterClass="string" resultMap="SelectAllResult">
+			<![CDATA[ where ID = #value#  ]]>
+		</select>
+
+		<!--插入新记录-->
+		<insert id="PRODUCT.Insert" parameterClass="Product">	
+			<!--oracle sequence的示例用法
+			<selectKey property="ID" type="pre" resultClass="int">
+				select SQ_Product.nextval as ID from dual
+			</selectKey>
+      -->
+			<![CDATA[INSERT into Product(ID,UNIT,NAME,DEPARTMENT,INSTRUMENT,CONTACTS,PHONE,STARTTIME)
+			VALUES(#ID#,#UNIT#, #NAME# , #DEPARTMENT# ,#INSTRUMENT# ,#CONTACTS# ,#PHONE# , #STARTTIME#)]]>
+		</insert>
+
+		<!--更新单条记录-->
+		<update id="PRODUCT.Update" parameterClass="Product">
+			<![CDATA[Update Product 
+			SET 
+			NAME=#NAME#,
+			UNIT=#UNIT#,			
+			DEPARTMENT=#DEPARTMENT#,
+			INSTRUMENT=#INSTRUMENT#,
+			CONTACTS=#CONTACTS#,
+			PHONE=#PHONE#,
+			STARTTIME=#STARTTIME#
+			Where ID=#ID#]]>
+		</update>
+
+		<!--根据主键删除单条记录-->
+		<delete id="PRODUCT.DeleteById" parameterClass="string">
+			<![CDATA[Delete From Product Where ID=#value#]]>
+		</delete>
+
+
+	</statements>
+
+</sqlMap>
+
