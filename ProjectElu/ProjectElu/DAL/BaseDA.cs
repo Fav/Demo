@@ -44,7 +44,7 @@ namespace ProjectElu
             return 0;
         }
 
-        public static T Get<T>(object primaryKeyId) where T : class
+        public static T Retrive<T>(object primaryKeyId) where T : class
         {
             ISqlMapper iSqlMapper = Mapper.Instance();
             if (iSqlMapper != null)
@@ -59,7 +59,7 @@ namespace ProjectElu
             ISqlMapper iSqlMapper = Mapper.Instance();
             if (iSqlMapper != null)
             {
-                return iSqlMapper.QueryForList<T>(GetNameSpace<T>() + ".SelectAll", parameterObject);
+                return iSqlMapper.QueryForList<T>(GetNameSpace<T>() + ".query_list",  parameterObject);
             }
             return null;
         }

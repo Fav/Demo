@@ -21,8 +21,10 @@ C:\Users\Administrator\Documents\Visual Studio 2012\Projects\xxl\Demo\ProjectElu
 C:\Users\Administrator\Documents\Visual Studio 2012\Projects\xxl\Demo\ProjectElu\ProjectElu\bin\Debug\Maps\ROLE.xml
 C:\Users\Administrator\Documents\Visual Studio 2012\Projects\xxl\Demo\ProjectElu\ProjectElu\bin\Debug\Maps\USER.xml
 C:\Users\Administrator\Documents\Visual Studio 2012\Projects\xxl\Demo\ProjectElu\ProjectElu\bin\Debug\Providers.config
+C:\Users\Administrator\Documents\Visual Studio 2012\Projects\xxl\Demo\ProjectElu\ProjectElu\bin\Debug\res\bg.png
 C:\Users\Administrator\Documents\Visual Studio 2012\Projects\xxl\Demo\ProjectElu\ProjectElu\bin\Debug\SqlMap.config
 C:\Users\Administrator\Documents\Visual Studio 2012\Projects\xxl\Demo\ProjectElu\ProjectElu\bin\Debug\1.db
+C:\Users\Administrator\Documents\Visual Studio 2012\Projects\xxl\Demo\ProjectElu\ProjectElu\bin\Debug\log4net.config
 C:\Users\Administrator\Documents\Visual Studio 2012\Projects\xxl\Demo\ProjectElu\ProjectElu\bin\Debug\ProjectElu.exe.config
 C:\Users\Administrator\Documents\Visual Studio 2012\Projects\xxl\Demo\ProjectElu\ProjectElu\bin\Debug\ProjectElu.exe
 C:\Users\Administrator\Documents\Visual Studio 2012\Projects\xxl\Demo\ProjectElu\ProjectElu\bin\Debug\ProjectElu.pdb
@@ -34,6 +36,8 @@ C:\Users\Administrator\Documents\Visual Studio 2012\Projects\xxl\Demo\ProjectElu
 C:\Users\Administrator\Documents\Visual Studio 2012\Projects\xxl\Demo\ProjectElu\ProjectElu\bin\Debug\log4net.dll
 C:\Users\Administrator\Documents\Visual Studio 2012\Projects\xxl\Demo\ProjectElu\ProjectElu\bin\Debug\System.Data.SQLite.dll
 C:\Users\Administrator\Documents\Visual Studio 2012\Projects\xxl\Demo\ProjectElu\ProjectElu\obj\Debug\ProjectElu.Form1.resources
+C:\Users\Administrator\Documents\Visual Studio 2012\Projects\xxl\Demo\ProjectElu\ProjectElu\obj\Debug\ProjectElu.FrmLogin.resources
+C:\Users\Administrator\Documents\Visual Studio 2012\Projects\xxl\Demo\ProjectElu\ProjectElu\obj\Debug\ProjectElu.FrmMain.resources
 C:\Users\Administrator\Documents\Visual Studio 2012\Projects\xxl\Demo\ProjectElu\ProjectElu\obj\Debug\ProjectElu.Properties.Resources.resources
 C:\Users\Administrator\Documents\Visual Studio 2012\Projects\xxl\Demo\ProjectElu\ProjectElu\obj\Debug\ProjectElu.csproj.GenerateResource.Cache
 C:\Users\Administrator\Documents\Visual Studio 2012\Projects\xxl\Demo\ProjectElu\ProjectElu\obj\Debug\ProjectElu.exe

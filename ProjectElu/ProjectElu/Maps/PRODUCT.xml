@@ -30,7 +30,7 @@
 		</select>
 
 		<!--查询单条记录-->
-		<select id="PRODUCT.SelectByID" parameterClass="string" resultMap="SelectAllResult">
+		<select id="PRODUCT.SelectByID" parameterClass="string" resultMap="SelectAllResult" extends="PRODUCT.SelectAll">
 			<![CDATA[ where ID = #value#  ]]>
 		</select>
 
@@ -59,12 +59,89 @@
 			Where ID=#ID#]]>
 		</update>
 
-		<!--根据主键删除单条记录-->
+    <sql id="PRODUCT.allColumn">
+      ID,NAME,UNIT,DEPARTMENT,INSTRUMENT,CONTACTS,PHONE,STARTTIME
+    </sql>
+
+    <!--根据主键删除单条记录-->
 		<delete id="PRODUCT.DeleteById" parameterClass="string">
 			<![CDATA[Delete From Product Where ID=#value#]]>
 		</delete>
 
+    <!-- query domain where condition-->
+    <sql id="PRODUCT.dynamicWhere">
+      <isNotNull prepend="and" property="ID">
+        ID like '%$ID$%'
+      </isNotNull>
+      <isNotNull prepend="and" property="NAME">
+        NAME like '%$NAME$%'
+      </isNotNull>
+      <isNotNull prepend="and" property="UNIT">
+        UNIT like '%$UNIT$%'
+      </isNotNull>
+      <isNotNull prepend="and" property="DEPARTMENT">
+        DEPARTMENT like '%$DEPARTMENT$%'
+      </isNotNull>
+      <isNotNull prepend="and" property="INSTRUMENT">
+        INSTRUMENT like '%$INSTRUMENT$%'
+      </isNotNull>
+      <isNotNull prepend="and" property="CONTACTS">
+        CONTACTS like '%$CONTACTS$%'
+      </isNotNull>
+      <isNotNull prepend="and" property="PHONE">
+        PHONE like '%$PHONE$%'
+      </isNotNull>
+      <isNotNull prepend="and" property="STARTTIME">
+        STARTTIME like '%$STARTTIME$%'
+      </isNotNull>
 
+    </sql>
+
+    <sql id="PRODUCT.dynamicScope">
+      <isNotNull prepend="and" property="scope.ID">
+        ID ='$scope.ID'
+      </isNotNull>
+      <isNotNull prepend="and" property="scope.NAME">
+        NAME ='$scope.NAME'
+      </isNotNull>
+      <isNotNull prepend="and" property="scope.UNIT">
+        UNIT ='$scope.UNIT'
+      </isNotNull>
+      <isNotNull prepend="and" property="scope.DEPARTMENT">
+        DEPARTMENT ='$scope.DEPARTMENT'
+      </isNotNull>
+      <isNotNull prepend="and" property="scope.INSTRUMENT">
+        INSTRUMENT ='$scope.INSTRUMENT'
+      </isNotNull>
+      <isNotNull prepend="and" property="scope.CONTACTS">
+        CONTACTS ='$scope.CONTACTS'
+      </isNotNull>
+      <isNotNull prepend="and" property="scope.PHONE">
+        PHONE ='$scope.PHONE'
+      </isNotNull>
+      <isNotNull prepend="and" property="scope.STARTTIME">
+        STARTTIME ='$scope.STARTTIME'
+      </isNotNull>
+
+    </sql>
+
+    <!-- query domain-->
+    <select id="PRODUCT.query_list" resultMap="SelectAllResult" parameterClass="System.Collections.IDictionary">
+      select  <include refid="PRODUCT.allColumn" />
+      from PRODUCT
+      <dynamic prepend="where">
+        <include refid="PRODUCT.dynamicWhere" />
+        <include refid="PRODUCT.dynamicScope" />
+      </dynamic>
+    </select>
+
+    <select id="PRODUCT.query_cnt" resultClass="int" parameterClass="System.Collections.IDictionary">
+      select count(*) from PRODUCT
+      <dynamic prepend="where">
+        <include refid="PRODUCT.dynamicWhere" />
+        <include refid="PRODUCT.dynamicScope" />
+      </dynamic>
+    </select>
 	</statements>
 
 </sqlMap>

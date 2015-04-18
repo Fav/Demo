@@ -24,7 +24,7 @@
 		</select>
 
 		<!--查询单条记录-->
-		<select id="ROLE.SelectByID" parameterClass="int" resultMap="SelectAllResult">
+		<select id="ROLE.SelectByID" parameterClass="int" resultMap="SelectAllResult" extends="ROLE.SelectAll">
 			<![CDATA[ where ROLEID = #value#  ]]>
 		</select>
 

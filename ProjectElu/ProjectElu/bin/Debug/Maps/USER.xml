@@ -27,8 +27,8 @@
 		</select>
 
 		<!--查询单条记录-->
-		<select id="USER.SelectByID" parameterClass="string" resultMap="SelectAllResult">
-			<![CDATA[ where ID = #value#  ]]>
+		<select id="USER.SelectByID" parameterClass="string" resultMap="SelectAllResult" extends="USER.SelectAll">
+			<![CDATA[ where USERNAME = #value#  ]]>
 		</select>
 
 		<!--插入新记录-->
@@ -56,7 +56,63 @@
 			<![CDATA[Delete From USER Where ID=#value#]]>
 		</delete>
 
+    <!-- query domain where condition-->
+    <sql id="USER.dynamicWhere">
+      <isNotNull prepend="and" property="ID">
+        ID like '%$ID$%'
+      </isNotNull>
+      <isNotNull prepend="and" property="USERNAME">
+        USERNAME like '%$USERNAME$%'
+      </isNotNull>
+      <isNotNull prepend="and" property="PASSWORD">
+        PASSWORD like '%$PASSWORD$%'
+      </isNotNull>
+      <isNotNull prepend="and" property="ROLETYPE">
+        ROLETYPE like '%$ROLETYPE$%'
+      </isNotNull>
+      <isNotNull prepend="and" property="UNIT">
+        UNIT like '%$UNIT$%'
+      </isNotNull>
 
+    </sql>
+
+    <sql id="USER.dynamicScope">
+      <isNotNull prepend="and" property="scope.ID">
+        ID ='$scope.ID'
+      </isNotNull>
+      <isNotNull prepend="and" property="scope.USERNAME">
+        USERNAME ='$scope.USERNAME'
+      </isNotNull>
+      <isNotNull prepend="and" property="scope.PASSWORD">
+        PASSWORD ='$scope.PASSWORD'
+      </isNotNull>
+      <isNotNull prepend="and" property="scope.ROLETYPE">
+        ROLETYPE ='$scope.ROLETYPE'
+      </isNotNull>
+      <isNotNull prepend="and" property="scope.UNIT">
+        UNIT ='$scope.UNIT'
+      </isNotNull>
+
+    </sql>
+
+    <!-- query domain-->
+    <select id="USER.query_list" resultMap="SelectAllResult" parameterClass="System.Collections.IDictionary">
+      select ID,USERNAME,PASSWORD,ROLETYPE,UNIT
+      from USER
+      <dynamic prepend="where">
+        <include refid="USER.dynamicWhere" />
+        <include refid="USER.dynamicScope" />
+      </dynamic>
+      order by ID
+    </select>
+
+    <select id="USER.query_cnt" resultClass="int" parameterClass="System.Collections.IDictionary">
+      select count(*) from USER
+      <dynamic prepend="where">
+        <include refid="USER.dynamicWhere" />
+        <include refid="USER.dynamicScope" />
+      </dynamic>
+    </select>
 	</statements>
 
 </sqlMap>
