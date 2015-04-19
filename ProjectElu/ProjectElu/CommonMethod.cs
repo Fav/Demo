@@ -4,6 +4,7 @@ using System.Linq;
 using System.Security.Cryptography;
 using System.Text;
 using System.Threading.Tasks;
+using System.Windows.Forms;
 
 namespace ProjectElu
 {
@@ -54,5 +55,30 @@ namespace ProjectElu
 
             return map;
         }
+
+        public static void ChangeHead(DataGridView dgv)
+        {
+            for (int i = 0; i < dgv.ColumnCount; i++)
+            {
+                string str = dgv.Columns[i].HeaderText;
+                if (!dicHeadText.ContainsKey(str))
+                {
+                    dgv.Columns[i].Visible = false;
+                }
+                else
+                {
+                    dgv.Columns[i].HeaderText = dicHeadText[str];
+                }
+            }
+        }
+        static Dictionary<string, string> dicHeadText = new Dictionary<string, string>()
+        {
+            {"UNIT","单位"},
+            {"DEPARTMENT","部门"},
+            {"INSTRUMENT","仪器"},
+            {"CONTACTS","联系人"},
+            {"PHONE","联系电话"},
+            {"STARTTIME","开始使用时间"},
+        };
     }
 }

@@ -49,6 +49,7 @@
             this.ClientSize = new System.Drawing.Size(617, 440);
             this.Controls.Add(this.dataGridView1);
             this.Name = "FrmWipeOut";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent;
             this.Text = "报销设备列表";
             this.Load += new System.EventHandler(this.FrmWipeOut_Load);
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();

@@ -37,7 +37,9 @@ namespace ProjectElu
                 return;
             }
             dataGridView1.DataSource = lst;
+            CommonMethod.ChangeHead(dataGridView1);
         }
+
 
         private void btnAdd_Click(object sender, EventArgs e)
         {
