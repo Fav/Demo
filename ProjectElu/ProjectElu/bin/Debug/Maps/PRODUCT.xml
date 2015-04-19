@@ -143,7 +143,10 @@
         <include refid="PRODUCT.dynamicScope" />
       </dynamic>
     </select>
+    <select id="PRODUCT.query_ByTime" resultMap="SelectAllResult" parameterClass="System.Collections.IDictionary">
+      select <include refid="PRODUCT.allColumn" />
+      from  PRODUCT where <![CDATA[STARTTIME <= #startTime#]]>
+    </select>
 	</statements>
-
 </sqlMap>
 

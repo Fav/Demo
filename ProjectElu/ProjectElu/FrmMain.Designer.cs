@@ -32,8 +32,9 @@
             this.btnWipeOut = new System.Windows.Forms.Button();
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
             this.label1 = new System.Windows.Forms.Label();
-            this.tbYear = new System.Windows.Forms.TextBox();
+            this.numericUpDown1 = new System.Windows.Forms.NumericUpDown();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.numericUpDown1)).BeginInit();
             this.SuspendLayout();
             // 
             // btnAdd
@@ -58,11 +59,14 @@
             // 
             // dataGridView1
             // 
+            this.dataGridView1.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridView1.Location = new System.Drawing.Point(48, 93);
+            this.dataGridView1.Location = new System.Drawing.Point(12, 93);
             this.dataGridView1.Name = "dataGridView1";
             this.dataGridView1.RowTemplate.Height = 23;
-            this.dataGridView1.Size = new System.Drawing.Size(603, 396);
+            this.dataGridView1.Size = new System.Drawing.Size(684, 415);
             this.dataGridView1.TabIndex = 2;
             // 
             // label1
@@ -74,19 +78,19 @@
             this.label1.TabIndex = 3;
             this.label1.Text = "年";
             // 
-            // tbYear
+            // numericUpDown1
             // 
-            this.tbYear.Location = new System.Drawing.Point(410, 46);
-            this.tbYear.Name = "tbYear";
-            this.tbYear.Size = new System.Drawing.Size(100, 21);
-            this.tbYear.TabIndex = 4;
+            this.numericUpDown1.Location = new System.Drawing.Point(390, 43);
+            this.numericUpDown1.Name = "numericUpDown1";
+            this.numericUpDown1.Size = new System.Drawing.Size(120, 21);
+            this.numericUpDown1.TabIndex = 4;
             // 
             // FrmMain
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(708, 520);
-            this.Controls.Add(this.tbYear);
+            this.Controls.Add(this.numericUpDown1);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.dataGridView1);
             this.Controls.Add(this.btnWipeOut);
@@ -97,6 +101,7 @@
             this.Text = "主界面";
             this.Load += new System.EventHandler(this.FrmMain_Load);
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.numericUpDown1)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -108,6 +113,6 @@
         private System.Windows.Forms.Button btnWipeOut;
         private System.Windows.Forms.DataGridView dataGridView1;
         private System.Windows.Forms.Label label1;
-        private System.Windows.Forms.TextBox tbYear;
+        private System.Windows.Forms.NumericUpDown numericUpDown1;
     }
 }

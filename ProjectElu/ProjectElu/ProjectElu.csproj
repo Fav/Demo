@@ -68,6 +68,18 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="FrmAddRecord.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FrmAddRecord.Designer.cs">
+      <DependentUpon>FrmAddRecord.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FrmWipeOut.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FrmWipeOut.Designer.cs">
+      <DependentUpon>FrmWipeOut.cs</DependentUpon>
+    </Compile>
     <Compile Include="QueryCollection.cs" />
     <Compile Include="CommonMethod.cs" />
     <Compile Include="DAL\BaseDA.cs" />
@@ -99,11 +111,17 @@
     <EmbeddedResource Include="Form1.resx">
       <DependentUpon>Form1.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="FrmAddRecord.resx">
+      <DependentUpon>FrmAddRecord.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="FrmLogin.resx">
       <DependentUpon>FrmLogin.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="FrmMain.resx">
       <DependentUpon>FrmMain.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FrmWipeOut.resx">
+      <DependentUpon>FrmWipeOut.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>

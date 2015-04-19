@@ -54,12 +54,13 @@ namespace ProjectElu
             return null;
         }
 
-        public static IList<T> QueryForList<T>(object parameterObject = null) where T : class
+        public static IList<T> QueryForList<T>(object parameterObject = null,string sqlMethod=null) where T : class
         {
             ISqlMapper iSqlMapper = Mapper.Instance();
             if (iSqlMapper != null)
             {
-                return iSqlMapper.QueryForList<T>(GetNameSpace<T>() + ".query_list",  parameterObject);
+                string strMethod =string.IsNullOrEmpty( sqlMethod )? ".query_list" : "." + sqlMethod;
+                return iSqlMapper.QueryForList<T>(GetNameSpace<T>() + strMethod, parameterObject);
             }
             return null;
         }
@@ -76,7 +77,6 @@ namespace ProjectElu
             }
             return 0;
         }
-
         /// <summary>
         /// 获取命名空间
         /// </summary>

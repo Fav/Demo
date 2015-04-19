@@ -19,6 +19,11 @@ namespace ProjectElu
 
         private void FrmMain_Load(object sender, EventArgs e)
         {
+            RefreshFrm();
+        }
+
+        private void RefreshFrm()
+        {
             USER user = CommonMethod.g_User;
             QueryCollection qc = new QueryCollection();
             if (user.ROLETYPE == 1)
@@ -26,7 +31,7 @@ namespace ProjectElu
                 qc.AddQueryParam("UNIT", user.UNIT);
             }
 
-            IList<PRODUCT> lst = BaseDA.QueryForList<PRODUCT>(CommonMethod.PrepareQuery( qc.QueryParams));
+            IList<PRODUCT> lst = BaseDA.QueryForList<PRODUCT>(CommonMethod.PrepareQuery(qc.QueryParams));
             if (lst == null)
             {
                 return;
@@ -36,12 +41,20 @@ namespace ProjectElu
 
         private void btnAdd_Click(object sender, EventArgs e)
         {
-
+            FrmAddRecord frm = new FrmAddRecord();
+            if (frm.ShowDialog()!= System.Windows.Forms.DialogResult.OK)
+                return;
+            BaseDA.Insert<PRODUCT>(frm.Product);
+            RefreshFrm();
         }
 
         private void btnWipeOut_Click(object sender, EventArgs e)
         {
-
+            int year = (int)numericUpDown1.Value;
+            DateTime dt = DateTime.Now;
+            DateTime dtLine = dt.AddYears(-year);
+            FrmWipeOut frm = new FrmWipeOut(dtLine);
+            frm.ShowDialog();
         }
     }
 }

@@ -42,3 +42,6 @@ C:\Users\Administrator\Documents\Visual Studio 2012\Projects\xxl\Demo\ProjectElu
 C:\Users\Administrator\Documents\Visual Studio 2012\Projects\xxl\Demo\ProjectElu\ProjectElu\obj\Debug\ProjectElu.csproj.GenerateResource.Cache
 C:\Users\Administrator\Documents\Visual Studio 2012\Projects\xxl\Demo\ProjectElu\ProjectElu\obj\Debug\ProjectElu.exe
 C:\Users\Administrator\Documents\Visual Studio 2012\Projects\xxl\Demo\ProjectElu\ProjectElu\obj\Debug\ProjectElu.pdb
+C:\Users\Administrator\Documents\Visual Studio 2012\Projects\xxl\Demo\ProjectElu\ProjectElu\obj\Debug\ProjectElu.csprojResolveAssemblyReference.cache
+C:\Users\Administrator\Documents\Visual Studio 2012\Projects\xxl\Demo\ProjectElu\ProjectElu\obj\Debug\ProjectElu.FrmAddRecord.resources
+C:\Users\Administrator\Documents\Visual Studio 2012\Projects\xxl\Demo\ProjectElu\ProjectElu\obj\Debug\ProjectElu.FrmWipeOut.resources

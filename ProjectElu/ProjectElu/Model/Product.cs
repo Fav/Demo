@@ -21,16 +21,6 @@ namespace ProjectElu
 		string _PHONE;   //鐢佃瘽
 		DateTime? _STARTTIME;   //寮€濮嬩娇鐢ㄦ椂闂?
 
-		 public string ID
-		{
-			 get { return _ID; }
-			 set { _ID = value; }
-		}
-		 public string NAME
-		{
-			 get { return _NAME; }
-			 set { _NAME = value; }
-		}
 		 public string UNIT
 		{
 			 get { return _UNIT; }
@@ -61,5 +51,15 @@ namespace ProjectElu
 			 get { return _STARTTIME; }
 			 set { _STARTTIME = value; }
 		}
+         public string NAME
+         {
+             get { return _NAME; }
+             set { _NAME = value; }
+         }
+         public string ID
+         {
+             get { return _ID; }
+             set { _ID = value; }
+         }
 	}
 }
