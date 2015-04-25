@@ -52,8 +52,8 @@
 		</update>
 
 		<!--根据主键删除单条记录-->
-		<delete id="USER.DeleteById" parameterClass="string">
-			<![CDATA[Delete From USER Where ID=#value#]]>
+		<delete id="USER.DeleteByName" parameterClass="string">
+			<![CDATA[Delete From USER Where USERNAME=#value#]]>
 		</delete>
 
     <!-- query domain where condition-->
