@@ -36,7 +36,7 @@ namespace ProjectElu
                 return;
             }
 
-            Application.Run(new FrmMain());
+            Application.Run(new FormMain());
         }
 
         #region 处理未捕获异常的挂钩函数

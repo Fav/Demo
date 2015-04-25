@@ -9,11 +9,12 @@
     <AppDesignerFolder>Properties</AppDesignerFolder>
     <RootNamespace>ProjectElu</RootNamespace>
     <AssemblyName>ProjectElu</AssemblyName>
-    <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
+    <TargetFrameworkVersion>v4.0</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
+    <TargetFrameworkProfile />
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
-    <PlatformTarget>AnyCPU</PlatformTarget>
+    <PlatformTarget>x86</PlatformTarget>
     <DebugSymbols>true</DebugSymbols>
     <DebugType>full</DebugType>
     <Optimize>false</Optimize>
@@ -66,8 +67,20 @@
     <Reference Include="System.Drawing" />
     <Reference Include="System.Windows.Forms" />
     <Reference Include="System.Xml" />
+    <Reference Include="UtilityLibrary">
+      <HintPath>..\BinLibrary\UtilityLibrary.dll</HintPath>
+    </Reference>
+    <Reference Include="WeifenLuo.WinFormsUI.Docking">
+      <HintPath>..\BinLibrary\WeifenLuo.WinFormsUI.Docking.dll</HintPath>
+    </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="FormMain.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FormMain.Designer.cs">
+      <DependentUpon>FormMain.cs</DependentUpon>
+    </Compile>
     <Compile Include="FrmAddRecord.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -80,38 +93,44 @@
     <Compile Include="FrmChangePW.Designer.cs">
       <DependentUpon>FrmChangePW.cs</DependentUpon>
     </Compile>
-    <Compile Include="FrmUserManager.cs">
+    <Compile Include="FrmDock.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="FrmUserManager.Designer.cs">
-      <DependentUpon>FrmUserManager.cs</DependentUpon>
+    <Compile Include="FrmDock.Designer.cs">
+      <DependentUpon>FrmDock.cs</DependentUpon>
     </Compile>
-    <Compile Include="FrmWipeOut.cs">
+    <Compile Include="FrmManagerDevice.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="FrmWipeOut.Designer.cs">
-      <DependentUpon>FrmWipeOut.cs</DependentUpon>
+    <Compile Include="FrmManagerDevice.Designer.cs">
+      <DependentUpon>FrmManagerDevice.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FrmManagerReimburse.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FrmManagerReimburse.Designer.cs">
+      <DependentUpon>FrmManagerReimburse.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FrmManagerUser.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FrmManagerUser.Designer.cs">
+      <DependentUpon>FrmManagerUser.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FrmMenu.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FrmMenu.Designer.cs">
+      <DependentUpon>FrmMenu.cs</DependentUpon>
     </Compile>
     <Compile Include="QueryCollection.cs" />
     <Compile Include="CommonMethod.cs" />
     <Compile Include="DAL\BaseDA.cs" />
-    <Compile Include="Form1.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="Form1.Designer.cs">
-      <DependentUpon>Form1.cs</DependentUpon>
-    </Compile>
     <Compile Include="FrmLogin.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="FrmLogin.Designer.cs">
       <DependentUpon>FrmLogin.cs</DependentUpon>
-    </Compile>
-    <Compile Include="FrmMain.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="FrmMain.Designer.cs">
-      <DependentUpon>FrmMain.cs</DependentUpon>
     </Compile>
     <Compile Include="Model\BaseDomain.cs" />
     <Compile Include="Model\PRODUCT.cs" />
@@ -132,8 +151,8 @@
     <Compile Include="FrmChangePWByAdmin.Designer.cs">
       <DependentUpon>FrmChangePWByAdmin.cs</DependentUpon>
     </Compile>
-    <EmbeddedResource Include="Form1.resx">
-      <DependentUpon>Form1.cs</DependentUpon>
+    <EmbeddedResource Include="FormMain.resx">
+      <DependentUpon>FormMain.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="FrmAddRecord.resx">
       <DependentUpon>FrmAddRecord.cs</DependentUpon>
@@ -144,14 +163,17 @@
     <EmbeddedResource Include="FrmLogin.resx">
       <DependentUpon>FrmLogin.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="FrmMain.resx">
-      <DependentUpon>FrmMain.cs</DependentUpon>
+    <EmbeddedResource Include="FrmManagerDevice.resx">
+      <DependentUpon>FrmManagerDevice.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="FrmUserManager.resx">
-      <DependentUpon>FrmUserManager.cs</DependentUpon>
+    <EmbeddedResource Include="FrmManagerReimburse.resx">
+      <DependentUpon>FrmManagerReimburse.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="FrmWipeOut.resx">
-      <DependentUpon>FrmWipeOut.cs</DependentUpon>
+    <EmbeddedResource Include="FrmManagerUser.resx">
+      <DependentUpon>FrmManagerUser.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FrmMenu.resx">
+      <DependentUpon>FrmMenu.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
@@ -161,6 +183,7 @@
     <Compile Include="Properties\Resources.Designer.cs">
       <AutoGen>True</AutoGen>
       <DependentUpon>Resources.resx</DependentUpon>
+      <DesignTime>True</DesignTime>
     </Compile>
     <EmbeddedResource Include="FrmAddUser.resx">
       <DependentUpon>FrmAddUser.cs</DependentUpon>

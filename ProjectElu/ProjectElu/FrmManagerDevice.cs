@@ -5,23 +5,24 @@ using System.Data;
 using System.Drawing;
 using System.Linq;
 using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
+using WeifenLuo.WinFormsUI.Docking;
 
 namespace ProjectElu
 {
-    public partial class FrmWipeOut : Form
+    public partial class FrmManagerDevice : FrmDock
     {
-        DateTime dtLine;
-        public FrmWipeOut(DateTime dt)
+        public FrmManagerDevice()
         {
             InitializeComponent();
-            this.Text = CommonMethod.g_User.UNIT + "报销设备列表";
-            dtLine = dt;
         }
 
-        private void FrmWipeOut_Load(object sender, EventArgs e)
+        private void toolStripButton1_Click(object sender, EventArgs e)
         {
+            FrmAddRecord frm = new FrmAddRecord();
+            if (frm.ShowDialog() != System.Windows.Forms.DialogResult.OK)
+                return;
+            BaseDA.Insert<PRODUCT>(frm.Product);
             RefreshFrm();
         }
         private void RefreshFrm()
@@ -32,8 +33,8 @@ namespace ProjectElu
             {
                 qc.AddQueryParam("UNIT", user.UNIT);
             }
-            qc.AddQueryParam("startTime", dtLine);
-            IList<PRODUCT> lst = BaseDA.QueryForList<PRODUCT>(CommonMethod.PrepareQuery(qc.QueryParams), "query_ByTime");
+
+            IList<PRODUCT> lst = BaseDA.QueryForList<PRODUCT>(CommonMethod.PrepareQuery(qc.QueryParams));
             if (lst == null)
             {
                 return;
@@ -41,5 +42,11 @@ namespace ProjectElu
             dataGridView1.DataSource = lst;
             CommonMethod.ChangeHead(dataGridView1);
         }
+
+        private void FrmManagerDevice_Load(object sender, EventArgs e)
+        {
+            RefreshFrm();
+        }
+
     }
 }
