@@ -20,6 +20,7 @@ namespace ProjectElu
         private void FrmMain_Load(object sender, EventArgs e)
         {
             RefreshFrm();
+            btnUserManager.Visible = CommonMethod.g_User.ROLETYPE == 0;
         }
 
         private void RefreshFrm()
@@ -58,5 +59,24 @@ namespace ProjectElu
             FrmWipeOut frm = new FrmWipeOut(dtLine);
             frm.ShowDialog();
         }
+
+        private void btnUserManager_Click(object sender, EventArgs e)
+        {
+            FrmUserManager frm = new FrmUserManager();
+            frm.Show();
+        }
+
+        private void btnPWManager_Click(object sender, EventArgs e)
+        {
+            FrmChangePW frm = new FrmChangePW(CommonMethod.g_User.USERNAME, CommonMethod.g_User.PASSWORD);
+            if (frm.ShowDialog() != System.Windows.Forms.DialogResult.OK)
+            {
+                return;
+            }
+            CommonMethod.g_User.PASSWORD = frm.NewPW;
+            BaseDA.Update<USER>(CommonMethod.g_User);
+            CommonMethod.OutLog("修改密码成功");
+        }
+
     }
 }

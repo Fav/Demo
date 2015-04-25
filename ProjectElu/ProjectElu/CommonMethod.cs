@@ -79,6 +79,20 @@ namespace ProjectElu
             {"CONTACTS","联系人"},
             {"PHONE","联系电话"},
             {"STARTTIME","开始使用时间"},
+            {"USERNAME","用户名"},
+            {"选择","选择"},
+            {"单位","单位"},
+            {"部门","部门"},
+            {"仪器","仪器"},
+            {"联系人","联系人"},
+            {"联系电话","联系电话"},
+            {"开始使用时间","开始使用时间"},
+            {"用户名","用户名"},
         };
+
+        internal static void OutLog(string p)
+        {
+            MessageBox.Show(p);
+        }
     }
 }

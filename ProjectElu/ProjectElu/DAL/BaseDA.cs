@@ -30,7 +30,7 @@ namespace ProjectElu
             ISqlMapper iSqlMapper = Mapper.Instance();
             if (iSqlMapper != null)
             {
-                return iSqlMapper.Delete(tableName + ".DeleteById", primaryKeyId);
+                return iSqlMapper.Delete(tableName + ".DeleteByName", primaryKeyId);
             }
             return 0;
         }

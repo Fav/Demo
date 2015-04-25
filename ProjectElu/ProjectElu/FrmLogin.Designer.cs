@@ -55,7 +55,7 @@
             this.tbUser.Name = "tbUser";
             this.tbUser.Size = new System.Drawing.Size(148, 21);
             this.tbUser.TabIndex = 0;
-            this.tbUser.Text = "user1";
+            this.tbUser.Text = "admin";
             // 
             // tbPw
             // 
@@ -64,7 +64,7 @@
             this.tbPw.PasswordChar = '*';
             this.tbPw.Size = new System.Drawing.Size(148, 21);
             this.tbPw.TabIndex = 1;
-            this.tbPw.Text = "1";
+            this.tbPw.Text = "admin";
             // 
             // txtValidateCode
             // 
