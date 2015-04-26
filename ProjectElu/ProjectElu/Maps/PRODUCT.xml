@@ -31,7 +31,7 @@
 
 		<!--查询单条记录-->
 		<select id="PRODUCT.SelectByID" parameterClass="string" resultMap="SelectAllResult" extends="PRODUCT.SelectAll">
-			<![CDATA[ where ID = #value#  ]]>
+			<![CDATA[ where ID = #ID#  ]]>
 		</select>
 
 		<!--插入新记录-->
@@ -65,7 +65,7 @@
 
     <!--根据主键删除单条记录-->
 		<delete id="PRODUCT.DeleteById" parameterClass="string">
-			<![CDATA[Delete From Product Where ID=#value#]]>
+			<![CDATA[Delete From Product Where ID=#ID#]]>
 		</delete>
 
     <!-- query domain where condition-->
