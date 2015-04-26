@@ -25,7 +25,7 @@ namespace ProjectElu
             {
                 qc.AddQueryParam("UNIT", user.UNIT);
             }
-            qc.AddQueryParam("startTime", dtLine);
+            qc.AddQueryParam("STARTTIME", dtLine);
             IList<PRODUCT> lst = BaseDA.QueryForList<PRODUCT>(CommonMethod.PrepareQuery(qc.QueryParams), "query_ByTime");
             if (lst == null)
             {

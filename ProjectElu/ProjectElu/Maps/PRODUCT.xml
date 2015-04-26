@@ -92,7 +92,7 @@
         PHONE like '%$PHONE$%'
       </isNotNull>
       <isNotNull prepend="and" property="STARTTIME">
-        STARTTIME like '%$STARTTIME$%'
+        <![CDATA[STARTTIME <= #STARTTIME#]]>
       </isNotNull>
 
     </sql>
@@ -145,7 +145,10 @@
     </select>
     <select id="PRODUCT.query_ByTime" resultMap="SelectAllResult" parameterClass="System.Collections.IDictionary">
       select <include refid="PRODUCT.allColumn" />
-      from  PRODUCT where <![CDATA[STARTTIME <= #startTime#]]>
+      from  PRODUCT
+      <dynamic prepend="where">
+        <include refid="PRODUCT.dynamicWhere" />
+      </dynamic>
     </select>
 	</statements>
 </sqlMap>
