@@ -25,7 +25,7 @@
 
 		<!--查询单条记录-->
 		<select id="ROLE.SelectByID" parameterClass="int" resultMap="SelectAllResult" extends="ROLE.SelectAll">
-			<![CDATA[ where ROLEID = #ROLEID#  ]]>
+			<![CDATA[ where ROLEID = #value#  ]]>
 		</select>
 
 		<!--插入新记录-->

@@ -1,0 +1,119 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<sqlMap namespace="User" 
+    xmlns="http://ibatis.apache.org/mapping"
+		xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+
+	<alias>
+		<!--类的别名-->
+		<typeAlias alias="User" type="ProjectElu.USER,ProjectElu"/>
+	</alias>
+
+	<resultMaps>
+		<!--USER类与db表的映射-->
+		<resultMap id="SelectAllResult" class="User">
+			<result property="ID" column="ID"/>
+			<result property="USERNAME" column="USERNAME"/>
+			<result property="PASSWORD" column="PASSWORD" />
+			<result property="ROLETYPE" column="ROLETYPE"  />
+			<result property="UNIT" column="UNIT" />
+		</resultMap>
+	</resultMaps>
+
+	<statements>
+
+		<!--查询所有记录-->
+		<select id="USER.SelectAll" resultMap="SelectAllResult">
+			<![CDATA[SELECT ID,USERNAME,PASSWORD,ROLETYPE,UNIT FROM USER]]>
+		</select>
+
+		<!--查询单条记录-->
+		<select id="USER.SelectByID" parameterClass="string" resultMap="SelectAllResult" extends="USER.SelectAll">
+			<![CDATA[ where USERNAME = #value#  ]]>
+		</select>
+
+		<!--插入新记录-->
+		<insert id="USER.Insert" parameterClass="User">	
+			<!--oracle sequence的示例用法
+			<selectKey property="ID" type="pre" resultClass="int">
+				select SQ_USER.nextval as ID from dual
+			</selectKey>
+      -->
+			<![CDATA[INSERT into USER(ID,PASSWORD,USERNAME,ROLETYPE,UNIT)
+			VALUES(#ID#,#PASSWORD#, #USERNAME# , #ROLETYPE# , #UNIT#)]]>
+		</insert>
+
+		<!--更新单条记录-->
+		<update id="USER.Update" parameterClass="User">
+			<![CDATA[Update USER SET USERNAME=#USERNAME#,
+			PASSWORD=#PASSWORD#,			
+			ROLETYPE=#ROLETYPE#,
+			UNIT=#UNIT#
+			Where ID=#ID#]]>
+		</update>
+
+		<!--根据主键删除单条记录-->
+		<delete id="USER.DeleteByName" parameterClass="string">
+			<![CDATA[Delete From USER Where USERNAME=#value#]]>
+		</delete>
+
+    <!-- query domain where condition-->
+    <sql id="USER.dynamicWhere">
+      <isNotNull prepend="and" property="ID">
+        ID like '%$ID$%'
+      </isNotNull>
+      <isNotNull prepend="and" property="USERNAME">
+        USERNAME like '%$USERNAME$%'
+      </isNotNull>
+      <isNotNull prepend="and" property="PASSWORD">
+        PASSWORD like '%$PASSWORD$%'
+      </isNotNull>
+      <isNotNull prepend="and" property="ROLETYPE">
+        ROLETYPE like '%$ROLETYPE$%'
+      </isNotNull>
+      <isNotNull prepend="and" property="UNIT">
+        UNIT like '%$UNIT$%'
+      </isNotNull>
+
+    </sql>
+
+    <sql id="USER.dynamicScope">
+      <isNotNull prepend="and" property="scope.ID">
+        ID ='$scope.ID'
+      </isNotNull>
+      <isNotNull prepend="and" property="scope.USERNAME">
+        USERNAME ='$scope.USERNAME'
+      </isNotNull>
+      <isNotNull prepend="and" property="scope.PASSWORD">
+        PASSWORD ='$scope.PASSWORD'
+      </isNotNull>
+      <isNotNull prepend="and" property="scope.ROLETYPE">
+        ROLETYPE ='$scope.ROLETYPE'
+      </isNotNull>
+      <isNotNull prepend="and" property="scope.UNIT">
+        UNIT ='$scope.UNIT'
+      </isNotNull>
+
+    </sql>
+
+    <!-- query domain-->
+    <select id="USER.query_list" resultMap="SelectAllResult" parameterClass="System.Collections.IDictionary">
+      select ID,USERNAME,PASSWORD,ROLETYPE,UNIT
+      from USER
+      <dynamic prepend="where">
+        <include refid="USER.dynamicWhere" />
+        <include refid="USER.dynamicScope" />
+      </dynamic>
+      order by ID
+    </select>
+
+    <select id="USER.query_cnt" resultClass="int" parameterClass="System.Collections.IDictionary">
+      select count(*) from USER
+      <dynamic prepend="where">
+        <include refid="USER.dynamicWhere" />
+        <include refid="USER.dynamicScope" />
+      </dynamic>
+    </select>
+	</statements>
+
+</sqlMap>
+
